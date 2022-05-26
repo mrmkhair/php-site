@@ -1,0 +1,207 @@
+<?php
+
+include ('connect.php');
+$lang=$_POST['lang'];
+$content=$_POST['content'];
+$title=$_POST['title'];
+$brand=$_POST['brand'];
+$about=$_POST['about'];
+$projects=$_POST['projects'];
+$resum=$_POST['resum'];
+$contact=$_POST['contact'];
+$mode=$_POST['mode'];
+$smalltext=$_POST['smalltext'];
+$span1=$_POST['span1'];
+$span2=$_POST['span2'];
+$span3=$_POST['span3'];
+$span4=$_POST['span4'];
+$paragraph=$_POST['paragraph'];
+$link=$_POST['link'];
+$quote=$_POST['quote'];
+$h2projects=$_POST['h2projects'];
+$group1=$_POST['group1'];
+$s1=$_POST['s1'];
+$h1=$_POST['h1'];
+$m1=$_POST['m1'];
+$p1=$_POST['p1'];
+$s2=$_POST['s2'];
+$h2=$_POST['h2'];
+$m2=$_POST['m2'];
+$p2=$_POST['p2'];
+$s3=$_POST['s3'];
+$h3=$_POST['h3'];
+
+$p3=$_POST['p3'];
+$s4=$_POST['s4'];
+$h4=$_POST['h4'];
+$m4=$_POST['m4'];
+$p4=$_POST['p4'];
+$group2=$_POST['group2'];
+$s5=$_POST['s5'];
+$h5=$_POST['h5'];
+$m5=$_POST['m5'];
+$p5=$_POST['p5'];
+$s6=$_POST['s6'];
+$h6=$_POST['h6'];
+$m6=$_POST['m6'];
+$p6=$_POST['p6'];
+$s7=$_POST['s7'];
+$h7=$_POST['h7'];
+$m7=$_POST['m7'];
+$p7=$_POST['p7'];
+$welcome=$_POST['welcome'];
+$phone=$_POST['phone'];
+$email=$_POST['email'];
+$flink=$_POST['flink'];
+$ilink=$_POST['ilink'];
+$welcontact=$_POST['welcontact'];
+$yname=$_POST['yname'];
+$yemail=$_POST['yemail'];
+$ymsg=$_POST['ymsg'];
+$sending=$_POST['sending'];
+
+$svg=$_FILES['svg']['name'];
+if ($svg== NULL){
+    $svg=$_POST['oldsvg'];
+}else{
+  unlink("images/".$_POST['oldsvg']);
+ $svgtmp=$_FILES['svg']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($svgtmp,$upload_file.$svg);
+}
+$attachment=$_FILES['attachment']['name'];
+if ($attachment== NULL){
+    $attachment=$_POST['oldattachment'];
+}else{
+  unlink("images/".$_POST['oldattachment']);
+ $attachmenttmp=$_FILES['attachment']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($attachmenttmp,$upload_file.$attachment);
+}
+$img1=$_FILES['img1']['name'];
+if ($img1== NULL){
+    $img1=$_POST['oldimg1'];
+}else{
+  unlink("images/".$_POST['oldimg1']);
+ $imgtmp=$_FILES['img1']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img1);
+}
+$img2=$_FILES['img2']['name'];
+if ($img2== NULL){
+    $img2=$_POST['oldimg2'];
+}else{
+  unlink("images/".$_POST['oldimg2']);
+ $imgtmp=$_FILES['img2']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img2);
+}
+$img3=$_FILES['img3']['name'];
+if ($img3== NULL){
+    $img3=$_POST['oldimg3'];
+}else{
+  unlink("images/".$_POST['oldimg3']);
+ $imgtmp=$_FILES['img3']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img3);
+}
+$img4=$_FILES['img4']['name'];
+if ($img4== NULL){
+    $img4=$_POST['oldimg4'];
+}else{
+  unlink("images/".$_POST['oldimg4']);
+ $imgtmp=$_FILES['img4']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img4);
+}
+$img5=$_FILES['img5']['name'];
+if ($img5== NULL){
+    $img5=$_POST['oldimg5'];
+}else{
+  unlink("images/".$_POST['oldimg5']);
+ $imgtmp=$_FILES['img5']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img5);
+}
+$img6=$_FILES['img6']['name'];
+if ($img6== NULL){
+    $img6=$_POST['oldimg6'];
+}else{
+  unlink("images/".$_POST['oldimg6']);
+ $imgtmp=$_FILES['img6']['tmp_name'];
+ $upload_file='images/';
+ move_uploaded_file($imgtmp,$upload_file.$img6);
+}
+$sql="UPDATE info SET 
+content='$content',
+title='$title',
+brand='$brand',
+about='$about',
+projects='$projects',
+resum='$resum',
+contact='$contact',
+mode='$mode',
+smalltext='$smalltext',
+span1='$span1',
+span2='$span2',
+span3='$span3',
+span4='$span4',
+paragraph='$paragraph',
+link='$link',
+quote='$quote',
+h2projects='$h2projects',
+group1='$group1',
+s1='$s1',
+h1='$h1',
+m1='$m1',
+p1='$p1',
+s2='$s2',
+h2='$h2',
+m2='$m2',
+p2='$p2',
+s3='$s3',
+h3='$h3',
+
+p3='$p3',
+s4='$s4',
+h4='$h4',
+m4='$m4',
+p4='$p4',
+group2='$group2',
+s5='$s5',
+h5='$h5',
+m5='$m5',
+p5='$p5',
+s6='$s6',
+h6='$h6',
+m6='$m6',
+p6='$p6',
+s7='$s7',
+h7='$h7',
+m7='$m7',
+p7='$p7',
+welcome='$welcome',
+phone='$phone',
+email='$email',
+flink='$flink',
+ilink='$ilink',
+welcontact='$welcontact',
+yname='$yname',
+yemail='$yemail',
+ymsg='$ymsg',
+sending='$sending',
+
+svg='$svg',
+attachment='$attachment',
+img1='$img1',
+img2='$img2',
+img3='$img3',
+img4='$img4',
+img5='$img5', 
+img6='$img6'
+WHERE lang='$lang'";
+
+$result=$conn->query($sql);
+
+header('location:http://localhost/myphpsite/ad.php')
+?>
